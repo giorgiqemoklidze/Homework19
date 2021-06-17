@@ -72,8 +72,8 @@ class MainFragment : Fragment() {
             return
         }
 
-        viewModel.user = User(binding.email.text.toString(),binding.password.text.toString())
-        viewModel.register()
+
+        viewModel.register(binding.email.text.toString().trim(),binding.password.text.toString().trim())
 
     }
 
@@ -104,8 +104,8 @@ class MainFragment : Fragment() {
             return
         }
 
-        viewModel.user = User(binding.email.text.toString().trim(),binding.password.text.toString().trim())
-        viewModel.logIn()
+
+        viewModel.logIn(binding.email.text.toString().trim(),binding.password.text.toString().trim())
         Toast.makeText(requireActivity(), "LogIn SUCSSESFULL", Toast.LENGTH_SHORT).show()
 
     }

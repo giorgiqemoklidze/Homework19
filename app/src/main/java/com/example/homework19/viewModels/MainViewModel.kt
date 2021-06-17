@@ -13,23 +13,23 @@ import kotlinx.coroutines.withContext
 class MainViewModel : ViewModel() {
 
 
-    lateinit var  user:User
 
-    fun register(){
+
+    fun register(email : String, password:String){
         viewModelScope.launch {
             withContext(Dispatchers.IO){
-                var registerResponse = RetrofitService.RetrofitService().registerUser(user)
+                var registerResponse = RetrofitService.RetrofitService().registerUser(User(email,password))
             }
         }
 
     }
 
 
-    fun logIn(){
+    fun logIn(email : String, password:String){
 
         viewModelScope.launch {
             withContext(Dispatchers.IO){
-                var logInResponse = RetrofitService.RetrofitService().logIn(user)
+                var logInResponse = RetrofitService.RetrofitService().logIn(User(email,password))
             }
         }
 
